@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>ScreenCast Example</title>
+</head>
+<body>
+<h1>This is your screencast</h1>
+<img id="ItemPreview" src="" width="500" height="1024" />
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.connect();
+  socket.on("stream", function (data) {
+    document.getElementById("ItemPreview").src = "data:image/jpeg;base64," + data;
+        //console.log('a user connected',data);
+  });
+</script>
+
+</html>
